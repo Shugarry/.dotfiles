@@ -1,24 +1,25 @@
 #!/bin/bash
 
-# Error handling
-set -euo pipefail
+set -e  # Exit on error
 
-echo "Dotfiles installation starting"
-
-# Vars
 DOTFILES_DIR="$HOME/.dotfiles"
 
+echo "Setting up symlinks from $DOTFILES_DIR..."
+
 # Neovim
-link_with_backup "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
+ln -sf "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
 
 # i3
-link_with_backup "$DOTFILES_DIR/i3" "$HOME/.config/i3"
+ln -sf "$DOTFILES_DIR/i3" "$HOME/.config/i3"
 
 # Wezterm
-link_with_backup "$DOTFILES_DIR/wezterm/.wezterm.lua" "$HOME/.wezterm.lua"
+ln -sf "$DOTFILES_DIR/wezterm/.wezterm.lua" "$HOME/.wezterm.lua"
 
 # Zsh
-link_with_backup "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
-link_with_backup "$DOTFILES_DIR/zsh/.zsh" "$HOME/.zsh"
+ln -sf "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
+ln -sf "$DOTFILES_DIR/zsh/.zsh" "$HOME/.zsh"
 
-echo "Dotfiles installation complete!"
+# Fonts
+cp -r "$DOTFILES_DIR/fonts/*" "$HOME/.fonts"
+
+echo "Dotfiles symlinks created successfully!"
