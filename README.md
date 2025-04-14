@@ -1,6 +1,6 @@
 # Shugarry's Dotfiles
 
-This repository contains my personal dotfiles, tailored to optimize my development workflow.  
+This repository contains my personal dotfiles, made personally to optimize my workflow.  
 
 ## Configurations and apps added:
 
@@ -33,6 +33,7 @@ Navigate to the `.dotfiles` directory and execute the installation script to cop
 
 ```bash
 cd ~/.dotfiles
+chmod +x install.sh
 ./install.sh
 ```
 
@@ -43,5 +44,6 @@ This script installs additional tools and dependencies you might need for the se
 - Includes: ripgrep, zoxide, Lua, luarocks...
 
 ```bash
+chmod +x install-tools.sh
 ./install-tools.sh
 ```
