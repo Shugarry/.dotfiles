@@ -11,6 +11,7 @@ This repository contains my personal dotfiles, tailored to optimize my developme
 - Fonts that I like
 - Also adds a bunch of dependencies automatically for the aforementiones apps via the install scripts
 
+
 ## Installation
 
 
@@ -24,6 +25,7 @@ git clone --recursive https://github.com/Shugarry/.dotfiles.git ~/.dotfiles
 
 The `--recursive` flag ensures that all submodules are cloned as well.
 
+
 ### Run the Installation Script
 
 Navigate to the `.dotfiles` directory and execute the installation script to copy the configurations:
@@ -33,6 +35,7 @@ Navigate to the `.dotfiles` directory and execute the installation script to cop
 cd ~/.dotfiles
 ./install.sh
 ```
+
 
 ### Install Additional Tools
 
