@@ -9,7 +9,7 @@ This repository contains my personal dotfiles, made personally to optimize my wo
 - i3
 - Wezterm
 - Fonts that I like
-- Also adds a bunch of dependencies automatically for the aforementiones apps via the install scripts
+- Also adds dependencies automatically for the aforementioned apps via the install scripts
 
 
 ## Installation
