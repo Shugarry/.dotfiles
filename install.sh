@@ -6,6 +6,9 @@ DOTFILES_DIR="$HOME/.dotfiles"
 
 echo "Setting up symlinks from $DOTFILES_DIR..."
 
+# Git
+ln -sf "$DOTFILES_DIR/git/.gitconfig" "$HOME/.gitconfig"
+
 # Neovim
 ln -sf "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
 
