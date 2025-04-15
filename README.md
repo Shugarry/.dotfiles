@@ -14,6 +14,12 @@ This repository contains my personal dotfiles, made personally to optimize my wo
 
 ## Installation
 
+### Recommended to have beforehand:
+
+- Make
+- Rust
+- zip
+- tar
 
 ### Clone the Repository
 
