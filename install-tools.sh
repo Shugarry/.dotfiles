@@ -27,21 +27,11 @@ mv /tmp/wezterm.AppImage ~/.local/bin/wezterm
 
 # Install Neovim
 echo "Installing Neovim..."
-NVIM_VERSION="v0.11.0"  # Change to desired version
+NVIM_VERSION="v0.11.0"
 curl -L -o /tmp/nvim.AppImage \
   https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/nvim.appimage
 chmod +x /tmp/nvim.AppImage
 mv /tmp/nvim.AppImage ~/.local/bin/nvim
-
-# Install zoxide
-echo "Installing zoxide..."
-curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | \
-  sh -s -- --no-helper --cmd zoxide --path ~/.local/bin
-
-# Install fzf
-echo "Installing fzf..."
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install --key-bindings --completion --no-update-rc --no-bash --no-zsh --no-fish
 
 # Install ripgrep (if Rust/cargo is installed)
 if command -v cargo &> /dev/null; then
@@ -69,6 +59,15 @@ cd luarocks-3.9.2
 make build
 make install
 cd ..
+
+# Install zoxide
+echo "Installing zoxide..."
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+
+# Install fzf
+echo "Installing fzf..."
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install --key-bindings --completion --no-update-rc --no-bash --no-zsh --no-fish
 
 echo "Installation complete!"
 echo "The following tools were installed to ~/.local/bin/:"
