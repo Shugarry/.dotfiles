@@ -136,7 +136,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 alias comp="gcc -Wall -Wextra -Werror"
 alias xcpy="xclip -selection clipboard"
 
-export PATH="$PATH:~/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 #================================PATHS_AND_ALIASES=============================#
 
