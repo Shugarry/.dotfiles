@@ -23,6 +23,6 @@ ln -sf "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
 ln -sf "$DOTFILES_DIR/zsh/.zsh" "$HOME/.zsh"
 
 # Fonts
-cp -r "$DOTFILES_DIR/fonts/*" "$HOME/.fonts"
+cp -r "$DOTFILES_DIR/fonts" "$HOME/.fonts"
 
 echo "Dotfiles symlinks created successfully!"
