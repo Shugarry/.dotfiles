@@ -70,6 +70,12 @@ config.keys = {
 
 	{ key = "Enter", mods = "ALT", action = wezterm.action.ToggleFullScreen },
 
+    { key = '=', mods = 'CTRL', action = wezterm.action.IncreaseFontSize, },
+
+    { key = '-', mods = 'CTRL', action = wezterm.action.DecreaseFontSize, },
+
+    { key = '0', mods = 'CTRL', action = wezterm.action.ResetFontSize, },
+
 }
 
 config.default_cursor_style = "SteadyBar"
