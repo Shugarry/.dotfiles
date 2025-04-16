@@ -13,8 +13,6 @@ config.color_scheme = 'rose-pine'
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
 config.tab_and_split_indices_are_zero_based = true
-config.initial_rows = 1000
-config.initial_cols = 1000
 
 config.window_padding = {
   left = 0,
