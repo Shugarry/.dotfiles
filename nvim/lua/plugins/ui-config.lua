@@ -1,17 +1,4 @@
 return { -- UI CONFIG (MAKE NVIM LOOK NICE)
-	{ -- LUALINE (STATUSLINE)
-		'nvim-lualine/lualine.nvim',
-		dependencies = {
-			'nvim-tree/nvim-web-devicons',
-			'lewis6991/gitsigns.nvim'
-		},
-		lazy = false,
-		config = function()
-			require('lualine').setup({
-				theme = 'gruvbox-material',
-			})
-		end
-	},
 	{ -- CURSORLINE (WORD HIGHLIGHTING)
 		'ya2s/nvim-cursorline',
 		lazy = false,
@@ -51,7 +38,7 @@ return { -- UI CONFIG (MAKE NVIM LOOK NICE)
 		config = function()
 			require("ibl").setup({
 				indent = {
-					char = "│",
+					char = "▎",
 					smart_indent_cap = true,
 				},
 				scope = {
@@ -97,5 +84,5 @@ return { -- UI CONFIG (MAKE NVIM LOOK NICE)
 				insert_at_end = true,
 			})
 		end
-	}
+	},
 }

@@ -7,14 +7,13 @@ return
 			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
 		},
-		opts = {
-			event_handlers = {
-				{
-					event = "file_opened",
-					handler = function()
-						vim.cmd("wincmd w")
-					end
+		lazy = false,
+		config = function()
+			require("neo-tree").setup({
+				close_if_last_window = true,
+				window = {
+					position = "current",
 				},
-			},
-		},
+			})
+		end,
 	}

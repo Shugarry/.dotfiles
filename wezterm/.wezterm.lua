@@ -26,7 +26,7 @@ config.inactive_pane_hsb = {
   brightness = 0.7,
 }
 
-config.window_background_opacity = 0.75
+config.window_background_opacity = 0.85
 
 config.font =
 	wezterm.font("Mononoki Nerd Font Propo")

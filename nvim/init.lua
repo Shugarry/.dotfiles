@@ -23,3 +23,8 @@ require("lazy").setup("plugins")
 
 -- Require keymaps in keymaps file
 require("keymaps")
+
+-- Neo-Tree Color
+vim.api.nvim_set_hl(0, "NeoTreeTitleBar", { fg = "#f6c177", bold = true })
+vim.api.nvim_set_hl(0, "NeoTreeFloatBorder", { fg = "#f6c177", bold = true })
+vim.api.nvim_set_hl(0, "IblIndent", { fg = "#ffffff" })  -- Regular indentation lines
