@@ -1,9 +1,9 @@
-return { -- UI CONFIG (MAKE NVIM LOOK NICE)
+return { -- UI CONFIG
 	{ -- CURSORLINE (WORD HIGHLIGHTING)
-		'ya2s/nvim-cursorline',
+		"ya2s/nvim-cursorline",
 		lazy = false,
 		config = function()
-			require('nvim-cursorline').setup {
+			require("nvim-cursorline").setup({
 				cursorline = {
 					enable = true,
 					timeout = 1000,
@@ -13,21 +13,54 @@ return { -- UI CONFIG (MAKE NVIM LOOK NICE)
 					enable = true,
 					min_length = 3,
 					hl = { underline = true },
-				}
-			}
-		end
-	},
-	{ -- WHICH-KEY (UI FOR SHORTCUTS)
-		"folke/which-key.nvim",
-		lazy = false,
-		opts = {},
-		config = function()
-			local wk = require("which-key")
-			wk.setup({
-				plugins = { spelling = { enabled = false } },
-				disable = { filetypes = { "TelescopePrompt", "neo-tree" } }
+				},
 			})
-		end
+		end,
+	},
+	{
+		"folke/which-key.nvim",
+		event = "VimEnter",
+		opts = {
+			delay = 0,
+			icons = {
+				mappings = true,
+				keys = vim.g.have_nerd_font and {} or {
+					Up = "<Up> ",
+					Down = "<Down> ",
+					Left = "<Left> ",
+					Right = "<Right> ",
+					C = "<C-…> ",
+					M = "<M-…> ",
+					D = "<D-…> ",
+					S = "<S-…> ",
+					CR = "<CR> ",
+					Esc = "<Esc> ",
+					ScrollWheelDown = "<ScrollWheelDown> ",
+					ScrollWheelUp = "<ScrollWheelUp> ",
+					NL = "<NL> ",
+					BS = "<BS> ",
+					Space = "<Space> ",
+					Tab = "<Tab> ",
+					F1 = "<F1>",
+					F2 = "<F2>",
+					F3 = "<F3>",
+					F4 = "<F4>",
+					F5 = "<F5>",
+					F6 = "<F6>",
+					F7 = "<F7>",
+					F8 = "<F8>",
+					F9 = "<F9>",
+					F10 = "<F10>",
+					F11 = "<F11>",
+					F12 = "<F12>",
+				},
+			},
+
+			spec = {
+				{ "<leader>t", group = "Neo[T]ree" },
+				{ "<leader>f", group = "Telescope" },
+			},
+		},
 	},
 	{ -- INDENT-BLANKLINE (INDENTATION GUIDELINES)
 		"lukas-reineke/indent-blankline.nvim",
@@ -45,7 +78,7 @@ return { -- UI CONFIG (MAKE NVIM LOOK NICE)
 					enabled = true,
 					show_start = true,
 					show_end = true,
-					highlight = {"Function", "Label"},
+					highlight = { "Function", "Label" },
 				},
 				exclude = {
 					filetypes = {
@@ -65,24 +98,49 @@ return { -- UI CONFIG (MAKE NVIM LOOK NICE)
 					},
 				},
 			})
-		end
+		end,
 	},
 	{ -- BARBAR (TAB INTEGRATION)
-		'romgrk/barbar.nvim',
+		"romgrk/barbar.nvim",
 		dependencies = {
-			'lewis6991/gitsigns.nvim',
-			'nvim-tree/nvim-web-devicons',
+			"lewis6991/gitsigns.nvim",
+			"nvim-tree/nvim-web-devicons",
 		},
 		opts = {},
 		config = function()
-			require('barbar').setup({
-				preset = 'slanted',
+			require("barbar").setup({
+				preset = "slanted",
 				tabpages = true,
 				animation = false,
 				clickable = true,
 				auto_hide = false,
 				insert_at_end = true,
 			})
-		end
+		end,
+	},
+	{ -- COMMENT HIGHLIGHTING
+		"folke/todo-comments.nvim",
+		event = "VimEnter",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = { signs = false },
+	},
+	{
+		"numToStr/Comment.nvim",
+		opts = {
+			-- add any options here
+		},
+	},
+	{ -- MINI (Various small helpful plugins)
+		"echasnovski/mini.nvim",
+		config = function()
+			require("mini.ai").setup({ n_lines = 500 })
+			require("mini.surround").setup()
+			local statusline = require("mini.statusline")
+			statusline.setup({ use_icons = true })
+			---@diagnostic disable-next-line: duplicate-set-field
+			statusline.section_location = function()
+				return "%2l:%-2v"
+			end
+		end,
 	},
 }

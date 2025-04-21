@@ -1,16 +1,8 @@
-local builtin = require('telescope.builtin')
-
 return {
 
 	-- GENERAL VIM KEYMAPS
 	vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]]),
 	vim.keymap.set('n', '<C-t>', '<cmd>term<CR>'),
-
-	-- TELESCOPE KEYMAPS
-	vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope: Find Files' }),
-	vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope: Live Grep' }),
-	vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope: Buffers' }),
-	vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope: Help Tags' }),
 
 	-- NEOTREE KEYMAPS
 	vim.keymap.set('n', '<leader>tt', '<cmd>Neotree toggle focus position=float<CR>', { desc = 'Neotree: Toggle' }),
@@ -33,12 +25,12 @@ return {
 	vim.keymap.set('n', '<C-6>', '<cmd>BufferGoto 6<CR>', { desc = 'Tab 1', noremap = true, silent = true }),
 
 	-- TRANSPARENT.NVIM KEYMAPS
-	vim.keymap.set('n', '<leader>T', '<cmd>TransparentToggle<CR>', { desc = 'Transparency toggle' }),
+	vim.keymap.set('n', '<leader>T', '<cmd>TransparentToggle<CR>', { desc = '[T]ransparency toggle' }),
 
 	-- LSP KEYMAPS
 	
 
 	-- GRUG-FAR KEYMAPS
-	vim.keymap.set('n', '<leader>gf', '<cmd>GrugFar<CR>', { desc = 'Find and replace' , noremap = true, silent = true }),
+	vim.keymap.set('n', '<leader>gf', '<cmd>GrugFar<CR>', { desc = '[G]rug[F]ar' , noremap = true, silent = true }),
 
 }
