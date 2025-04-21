@@ -1,45 +1,47 @@
-local wezterm = require 'wezterm'
+local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
 
 -- CONFIG
 
-config.color_scheme = 'rose-pine'
+config.color_scheme = "rose-pine"
+config.colors = {
+	background = "black",
+}
 
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
-
+config.window_decorations = "NONE" -- "TITLE | RESIZE"
 config.window_padding = {
-  left = 0,
-  right = 0,
-  top = 0,
-  bottom = 0,
+	left = 0,
+	right = 0,
+	top = 0,
+	bottom = 0,
 }
 
 config.inactive_pane_hsb = {
-  saturation = 0.8,
-  brightness = 0.7,
+	saturation = 0.8,
+	brightness = 0.7,
 }
 
-config.window_background_opacity = 0.85
+config.window_background_opacity = 0.9
 
-config.font =
-	wezterm.font("Mononoki Nerd Font Propo")
+config.font = wezterm.font("Mononoki Nerd Font Propo")
 config.font_size = 15
 
 config.disable_default_key_bindings = true
 
 config.keys = {
 
-	{ key = "o", mods = "CTRL|SHIFT", action = wezterm.action.SplitVertical { domain = "CurrentPaneDomain" }, },
+	{ key = "o", mods = "CTRL|SHIFT", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
 
-	{ key = "e", mods = "CTRL|SHIFT", action = wezterm.action.SplitHorizontal { domain = "CurrentPaneDomain" }, },
+	{ key = "e", mods = "CTRL|SHIFT", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 
 	{ key = "Tab", mods = "CTRL", action = wezterm.action.ActivateTabRelative(1) },
 
-    { key = "Tab", mods = "CTRL|SHIFT", action = wezterm.action.ActivateTabRelative(-1) },
+	{ key = "Tab", mods = "CTRL|SHIFT", action = wezterm.action.ActivateTabRelative(-1) },
 
-	{ key = "t", mods = "CTRL|SHIFT", action = wezterm.action.SpawnTab("DefaultDomain")},
+	{ key = "t", mods = "CTRL|SHIFT", action = wezterm.action.SpawnTab("DefaultDomain") },
 
 	{ key = "1", mods = "ALT", action = wezterm.action.ActivateTab(0) },
 	{ key = "2", mods = "ALT", action = wezterm.action.ActivateTab(1) },
@@ -52,7 +54,7 @@ config.keys = {
 	{ key = "9", mods = "ALT", action = wezterm.action.ActivateTab(8) },
 	{ key = "0", mods = "ALT", action = wezterm.action.ActivateTab(9) },
 
-	{ key = "w", mods = "CTRL|SHIFT", action = wezterm.action.CloseCurrentPane { confirm = true }},
+	{ key = "w", mods = "CTRL|SHIFT", action = wezterm.action.CloseCurrentPane({ confirm = true }) },
 
 	{ key = "h", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Left") },
 
@@ -70,17 +72,17 @@ config.keys = {
 
 	{ key = "l", mods = "CTRL|SHIFT|ALT", action = wezterm.action.AdjustPaneSize({ "Right", 5 }) },
 
-	{ key = "c", mods = "CTRL|SHIFT", action = wezterm.action.CopyTo("Clipboard")},
+	{ key = "c", mods = "CTRL|SHIFT", action = wezterm.action.CopyTo("Clipboard") },
 
-	{ key = "v", mods = "CTRL|SHIFT", action = wezterm.action.PasteFrom("Clipboard")},
+	{ key = "v", mods = "CTRL|SHIFT", action = wezterm.action.PasteFrom("Clipboard") },
 
 	{ key = "Enter", mods = "ALT", action = wezterm.action.ToggleFullScreen },
 
-	{ key = '=', mods = 'CTRL', action = wezterm.action.IncreaseFontSize, },
+	{ key = "=", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
 
-	{ key = '-', mods = 'CTRL', action = wezterm.action.DecreaseFontSize, },
+	{ key = "-", mods = "CTRL", action = wezterm.action.DecreaseFontSize },
 
-	{ key = '0', mods = 'CTRL', action = wezterm.action.ResetFontSize, },
+	{ key = "0", mods = "CTRL", action = wezterm.action.ResetFontSize },
 
 	{
 		key = "s",
