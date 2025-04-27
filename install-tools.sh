@@ -67,6 +67,8 @@ echo "Installing fzf..."
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --key-bindings --completion --no-update-rc --no-bash --no-zsh --no-fish
 
+source ~/.zshrc
+
 echo "Installation complete!"
 echo "The following tools were installed to ~/.local/bin/:"
 ls -lh ~/.local/bin/
