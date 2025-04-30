@@ -1,0 +1,1 @@
+/home/frey-gal/.dotfiles/zsh/.zsh

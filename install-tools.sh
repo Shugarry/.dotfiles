@@ -6,14 +6,14 @@ mkdir -p ~/.local/bin ~/.local/share/applications
 
 # Function to clean up temporary files
 cleanup() {
-  echo "Cleaning up temporary files..."
-  rm -rf /tmp/wezterm.AppImage \
-         /tmp/nvim.AppImage \
-         lua-5.4.7* \
-         luarocks-3.9.2* \
-         ~/lua-5.4.7 \
-         ~/luarocks-3.9.2
-}
+	echo "Cleaning up temporary files..."
+	rm -rf /tmp/wezterm.AppImage \
+		/tmp/nvim.AppImage \
+		lua-5.4.7* \
+		luarocks-3.9.2* \
+		~/lua-5.4.7 \
+		~/luarocks-3.9.2
+	}
 
 # Trap interrupts and errors to ensure cleanup
 trap cleanup EXIT ERR
@@ -21,7 +21,7 @@ trap cleanup EXIT ERR
 # Install WezTerm
 echo "Installing WezTerm..."
 curl -L -o /tmp/wezterm.AppImage \
-  https://github.com/wezterm/wezterm/releases/download/20240203-110809-5046fc22/WezTerm-20240203-110809-5046fc22-Ubuntu20.04.AppImage
+	https://github.com/wezterm/wezterm/releases/download/20240203-110809-5046fc22/WezTerm-20240203-110809-5046fc22-Ubuntu20.04.AppImage
 chmod +x /tmp/wezterm.AppImage
 mv /tmp/wezterm.AppImage ~/.local/bin/wezterm
 
@@ -33,10 +33,10 @@ mv nvim.appimage $HOME/.local/bin/nvim
 
 # Install ripgrep (if Rust/cargo is installed)
 if command -v cargo &> /dev/null; then
-  echo "Installing ripgrep..."
-  cargo install ripgrep --root ~/.local
+	echo "Installing ripgrep..."
+	cargo install ripgrep --root ~/.local
 else
-  echo "Skipping ripgrep: cargo not found. Install Rust first."
+	echo "Skipping ripgrep: cargo not found. Install Rust first."
 fi
 
 # Install Lua
@@ -66,6 +66,15 @@ curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh 
 echo "Installing fzf..."
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --key-bindings --completion --no-update-rc --no-bash --no-zsh --no-fish
+
+
+# Install fd-find
+if command -v cargo &> /dev/null; then
+	echo "Installing fd-find..."
+	cargo install fd-find
+else
+	echo "Skipping fd-find: cargo not found. Install Rust first."
+fi
 
 source ~/.zshrc
 
