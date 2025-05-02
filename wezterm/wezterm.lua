@@ -1,8 +1,23 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
-local sessionizer = require("sessionizer")
+local sessionizer = wezterm.plugin.require "https://github.com/mikkasendke/sessionizer.wezterm"
 
 -- CONFIG
+
+local my_schema = {
+	options = {
+		title = "Projects",
+		prompt = "Select project: ",
+	},
+
+	sessionizer.FdSearch {
+		wezterm.home_dir,
+		exclude = { ".local" },
+	},
+	processing = sessionizer.for_each_entry(function(entry)
+		entry.label = entry.label:gsub(wezterm.home_dir, "~")
+	end)
+}
 
 config.color_scheme = "rose-pine"
 config.colors = {
@@ -84,7 +99,7 @@ config.keys = {
 
 	{ key = "0", mods = "CTRL", action = wezterm.action.ResetFontSize },
 
-	{ key = "y", mods = "CTRL", action = wezterm.action_callback(sessionizer.toggle) },
+	{ key = "f", mods = "CTRL", action = sessionizer.show(my_schema) },
 }
 
 config.default_cursor_style = "SteadyBar"
