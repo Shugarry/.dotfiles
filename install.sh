@@ -20,10 +20,11 @@ mkdir -p "$DOTFILES_DIR/wezterm/resurrect"
 ln -sf "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
 ln -sf "$DOTFILES_DIR/zsh/.zsh" "$HOME/.zsh"
 
-# Fonts
-cp -r "$DOTFILES_DIR/fonts" "$HOME/.fonts"
-
 #Vim
 ln -sf "$DOTFILES_DIR/nvim" "$HOME/.vimrc"
+
+#Themes and fonts
+ln -sf "$DOTFILES_DIR/.themes $HOME"
+ln -sf "$DOTFILES_DIR/.fonts" "$HOME"
 
 echo "Dotfiles symlinks created successfully!"
