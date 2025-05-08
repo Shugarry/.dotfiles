@@ -76,6 +76,11 @@ else
 	echo "Skipping fd-find: cargo not found. Install Rust first."
 fi
 
+#Vim Rose Pine colorscheme
+echo "Adding Rose Pine colorscheme to Vim"
+mkdir -p $HOME/.vim/pack/plugins/start
+git clone --depth=1 https://github.com/rose-pine/vim $HOME/.vim/pack/plugins/start/rosepine/
+
 source ~/.zshrc
 
 echo "Installation complete!"

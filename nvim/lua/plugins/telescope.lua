@@ -15,6 +15,17 @@ return {
 	},
 	config = function()
 		require('telescope').setup {
+			defaults = {
+				file_ignore_patterns = {
+					"%.git/",     -- ignore .git directory
+					"node_modules/",
+					"%.lock",     -- lock files like package-lock.json
+					"%.log$",     -- log files
+					"__pycache__/",
+					"%.o$",       -- object files
+					"%.out$",       -- executables
+				},
+			},
 			extensions = {
 				['ui-select'] = {
 					require('telescope.themes').get_dropdown(),

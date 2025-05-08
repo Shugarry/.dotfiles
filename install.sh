@@ -22,4 +22,7 @@ ln -sf "$DOTFILES_DIR/zsh/.zsh" "$HOME/.zsh"
 # Fonts
 cp -r "$DOTFILES_DIR/fonts" "$HOME/.fonts"
 
+#Vim
+ln -sf "$DOTFILES_DIR/nvim" "$HOME/.vimrc"
+
 echo "Dotfiles symlinks created successfully!"
