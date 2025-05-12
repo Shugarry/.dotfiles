@@ -92,7 +92,7 @@ config.inactive_pane_hsb = {
 config.window_background_opacity = 0.85
 
 config.font = wezterm.font("Mononoki Nerd Font Propo")
-config.font_size = 15
+config.font_size = 16
 
 config.disable_default_key_bindings = true
 config.max_fps = 60
