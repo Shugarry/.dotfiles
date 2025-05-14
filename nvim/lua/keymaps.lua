@@ -54,7 +54,7 @@ return {
 	vim.keymap.set("n", "Q", "<nop>"),
 
 	vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = '[S]earch and replace' }),
-	vim.keymap.set("v", "<leader>s", [[:<C-u>'<,'>s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = '[S]earch and replace in selection' }),
+	vim.keymap.set("v", "<leader>s", [[:'<,'>s///g<Left><Left><Left>]], { desc = '[S]earch and replace in selection' }),
 
 	vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>'),
 
