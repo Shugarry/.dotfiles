@@ -24,6 +24,8 @@ vim.opt.smartindent = true
 vim.opt.history = 1000
 
 -- UI
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 -- Useful stuff
