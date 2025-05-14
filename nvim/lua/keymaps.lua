@@ -5,8 +5,7 @@ return {
 	vim.keymap.set('n', '<C-t>', '<cmd>term<CR>'),
 
 	-- NEOTREE KEYMAPS
-	vim.keymap.set('n', '<leader>tt', '<cmd>Neotree toggle focus position=float<CR>', { desc = 'Neotree: Toggle' }),
-	vim.keymap.set('n', '<leader>tb', '<cmd>Neotree toggle focus source=buffers position=float<CR>', { desc = 'Neotree: Toggle' }),
+	vim.keymap.set('n', '<leader>t', '<cmd>Neotree toggle focus position=current<CR>', { desc = 'Neotree: Toggle' }),
 
 	-- BUFFER KEYMAPS
 	vim.keymap.set('n', '<C-j>', '<cmd>BufferClose!<CR>', { desc = 'Close buffer', noremap = true, silent = true }),
@@ -27,10 +26,36 @@ return {
 	-- TRANSPARENT.NVIM KEYMAPS
 	vim.keymap.set('n', '<leader>T', '<cmd>TransparentToggle<CR>', { desc = '[T]ransparency toggle' }),
 
-	-- LSP KEYMAPS
-	
-
 	-- GRUG-FAR KEYMAPS
 	vim.keymap.set('n', '<leader>gf', '<cmd>GrugFar<CR>', { desc = '[G]rug[F]ar' , noremap = true, silent = true }),
 
+
+	-- VIM KEYMAPS
+	vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move text up in visual mode' }),
+	vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = 'Move text up in visual mode' }),
+
+	vim.keymap.set("x", "<", "<gv", { desc = 'Stay in visual mode while indented' }),
+	vim.keymap.set("x", ">", ">gv", { desc = 'Stay in visual mode while indented' }),
+
+
+	vim.keymap.set("n", "J", "mzJ`z") -- Stay in middle while moving through file,
+	vim.keymap.set("n", "<C-d>", "<C-d>zz"),
+	vim.keymap.set("n", "<C-u>", "<C-u>zz"),
+	vim.keymap.set("n", "n", "nzzzv"),
+	vim.keymap.set("n", "N", "Nzzzv"),
+
+	vim.keymap.set("x", "<leader>p", [["_dP]], { desc = 'Paste selection into void' }),
+
+	vim.keymap.set({"n", "v"}, "<leader>y", [["+y]], { desc = '[Y]ank selection into clipboard' }),
+	vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = '[Y]ank line into clipboard' }) ,
+
+	vim.keymap.set({"n", "v"}, "<leader>d", [["_d]], { desc = '[D]elete into void' }),
+
+	vim.keymap.set("n", "Q", "<nop>"),
+
+	vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = '[S]earch and replace' }) -- search and replace,
+
+	vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>'),
+
+	vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' }),
 }
