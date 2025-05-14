@@ -13,6 +13,32 @@ return
 				close_if_last_window = true,
 				window = {
 					position = "current",
+
+					mappings = {
+						["M"] = function (state)
+							local node = state.tree:get_node()
+							if node then
+								state.clipboard = state.clipboard or {}
+								local id = node:get_id()
+								local data = state.clipboard[id]
+								if data and data.action == "mark" then
+									state.clipboard[id] = nil
+								else
+									state.clipboard[id] = { action = "mark", node = node }
+								end
+								require("neo-tree.ui.renderer").redraw(state)
+							end
+						end,
+						["O"] = function (state)
+							local clipboard = state.clipboard or {}
+							for id, data in pairs(clipboard) do
+								if data.action == "mark" then
+									require("neo-tree.utils").open_file(state, id)
+								end
+							end
+							require("neo-tree.ui.renderer").redraw(state)
+						end
+					}
 				},
 				filesystem = {
 					filtered_items = {
@@ -31,7 +57,7 @@ return
 							"__pycache__",
 						},
 					},
-				}
+				},
 			})
 		end,
 	}

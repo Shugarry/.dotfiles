@@ -5,7 +5,7 @@ return {
 	vim.keymap.set('n', '<C-t>', '<cmd>term<CR>'),
 
 	-- NEOTREE KEYMAPS
-	vim.keymap.set('n', '<leader>t', '<cmd>Neotree toggle focus position=current<CR>', { desc = 'Neotree: Toggle' }),
+	vim.keymap.set('n', '<leader>t', '<cmd>Neotree toggle focus position=float<CR>', { desc = 'Neotree: Toggle' }),
 
 	-- BUFFER KEYMAPS
 	vim.keymap.set('n', '<C-j>', '<cmd>BufferClose!<CR>', { desc = 'Close buffer', noremap = true, silent = true }),
@@ -38,7 +38,7 @@ return {
 	vim.keymap.set("x", ">", ">gv", { desc = 'Stay in visual mode while indented' }),
 
 
-	vim.keymap.set("n", "J", "mzJ`z") -- Stay in middle while moving through file,
+	vim.keymap.set("n", "J", "mzJ`z"), -- Stay in middle while moving through file
 	vim.keymap.set("n", "<C-d>", "<C-d>zz"),
 	vim.keymap.set("n", "<C-u>", "<C-u>zz"),
 	vim.keymap.set("n", "n", "nzzzv"),
@@ -53,7 +53,7 @@ return {
 
 	vim.keymap.set("n", "Q", "<nop>"),
 
-	vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = '[S]earch and replace' }) -- search and replace,
+	vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = '[S]earch and replace' }), -- search and replace
 
 	vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>'),
 
