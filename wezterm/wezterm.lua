@@ -1,34 +1,5 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
-local sessionizer = wezterm.plugin.require "https://github.com/mikkasendke/sessionizer.wezterm"
-local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
-local theme = wezterm.plugin.require('https://github.com/neapsix/wezterm').main
-
--- SESSIONIZER
-
-local my_schema = {
-	options = {
-		title = "Projects",
-		prompt = "Select project: ",
-	},
-
-	sessionizer.FdSearch {
-		wezterm.home_dir,
-		exclude = { ".local" },
-	},
-	processing = sessionizer.for_each_entry(function(entry)
-		entry.label = entry.label:gsub(wezterm.home_dir, "~")
-	end)
-}
-
--- RESURRECT WORKSPACE
-
-resurrect.state_manager.change_state_save_dir(os.getenv("HOME") .. "/.dotfiles/wezterm/resurrect/")
-
-wezterm.on("resurrect.error", function(err)
-	wezterm.log_error("ERROR!")
-	wezterm.gui.gui_windows()[1]:toast_notification("resurrect", err, nil, 3000)
-end)
 
 -- TERMINAL CONFIG
 config.color_scheme = "rose-pine"
@@ -155,58 +126,6 @@ config.keys = {
 	{ key = "-", mods = "CTRL", action = wezterm.action.DecreaseFontSize },
 
 	{ key = "0", mods = "CTRL", action = wezterm.action.ResetFontSize },
-
-	{ key = "f", mods = "CTRL", action = sessionizer.show(my_schema) },
-
-	{
-		key = "s",
-		mods = "ALT",
-		action = wezterm.action_callback(function(win, pane)
-			resurrect.state_manager.save_state(resurrect.workspace_state.get_workspace_state())
-			resurrect.window_state.save_window_action()
-		end),
-	},
-	{
-		key = "r",
-		mods = "ALT",
-		action = wezterm.action_callback(function(win, pane)
-			resurrect.fuzzy_loader.fuzzy_load(win, pane, function(id, label)
-				local type = string.match(id, "^([^/]+)") -- match before '/'
-				id = string.match(id, "([^/]+)$") -- match after '/'
-				id = string.match(id, "(.+)%..+$") -- remove file extention
-				local opts = {
-					relative = true,
-					restore_text = true,
-					on_pane_restore = resurrect.tab_state.default_on_pane_restore,
-				}
-				if type == "workspace" then
-					local state = resurrect.state_manager.load_state(id, "workspace")
-					resurrect.workspace_state.restore_workspace(state, opts)
-				elseif type == "window" then
-					local state = resurrect.state_manager.load_state(id, "window")
-					resurrect.window_state.restore_window(pane:window(), state, opts)
-				elseif type == "tab" then
-					local state = resurrect.state_manager.load_state(id, "tab")
-					resurrect.tab_state.restore_tab(pane:tab(), state, opts)
-				end
-			end)
-		end),
-	},
-	{
-		key = "d",
-		mods = "ALT",
-		action = wezterm.action_callback(function(win, pane)
-			resurrect.fuzzy_loader.fuzzy_load(win, pane, function(id)
-				resurrect.state_manager.delete_state(id)
-			end,
-				{
-					title = "Delete State",
-					description = "Select State to Delete and press Enter = accept, Esc = cancel, / = filter",
-					fuzzy_description = "Search State to Delete: ",
-					is_fuzzy = true,
-				})
-		end),
-	},
 }
 
 return config

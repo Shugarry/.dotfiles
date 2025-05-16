@@ -57,8 +57,8 @@ return { -- UI CONFIG
 			},
 
 			spec = {
-				{ "<leader>t", group = "Neo[T]ree" },
 				{ "<leader>f", group = "Telescope" },
+				{ "<leader>s", group = "[S]essions" },
 			},
 		},
 	},
@@ -129,19 +129,6 @@ return { -- UI CONFIG
 		opts = {
 			-- add any options here
 		},
-	},
-	{ -- MINI (Various small helpful plugins)
-		"echasnovski/mini.nvim",
-		config = function()
-			require("mini.ai").setup({ n_lines = 500 })
-			require("mini.surround").setup()
-			local statusline = require("mini.statusline")
-			statusline.setup({ use_icons = true })
-			---@diagnostic disable-next-line: duplicate-set-field
-			statusline.section_location = function()
-				return "%2l:%-2v"
-			end
-		end,
 	},
 	{ -- ZEN MODE
 		"folke/zen-mode.nvim",

@@ -1,8 +1,13 @@
-return {
+local function get_session_name()
+	local git_root = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
+	if vim.v.shell_error ~= 0 or not git_root or git_root == '' then
+		return nil
+	end
+	local name = vim.fn.fnamemodify(git_root, ":t")
+	return name:gsub("^%.+", "")
+end
 
-	-- GENERAL VIM KEYMAPS
-	vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]]),
-	vim.keymap.set('n', '<C-t>', '<cmd>term<CR>'),
+return {
 
 	-- NEOTREE KEYMAPS
 	vim.keymap.set('n', '<leader>t', '<cmd>Neotree toggle focus position=float<CR>', { desc = 'Neotree: Toggle' }),
@@ -29,8 +34,34 @@ return {
 	-- GRUG-FAR KEYMAPS
 	vim.keymap.set('n', '<leader>gf', '<cmd>GrugFar<CR>', { desc = '[G]rug[F]ar' , noremap = true, silent = true }),
 
+	-- SESSIONS
+	vim.keymap.set("n", "<leader>ss", function()
+		local name = get_session_name()
+		if name then
+			require("mini.sessions").write(name, {
+				force = true,
+				verbose = true,
+			})
+		else
+			vim.notify("Not in a Git project. Session not saved.", vim.log.levels.WARN)
+		end
+	end, { desc = "[S]ave session manually" }),
+	vim.keymap.set("n", "<leader>sl", function()
+		require("mini.sessions").select("read", {
+			force = true,
+			verbose = true,
+		})
+	end, { desc = "[L]oad neovim session" }),
+	vim.keymap.set("n", "<leader>sd", function()
+		require("mini.sessions").select("delete", {
+			force = true,
+			verbose = true,
+		})
+	end, { desc = "[D]elete a session" }),
 
 	-- VIM KEYMAPS
+	vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]]),
+	vim.keymap.set('n', '<C-t>', '<cmd>term<CR>'),
 	vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move text up in visual mode' }),
 	vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = 'Move text up in visual mode' }),
 
@@ -53,8 +84,8 @@ return {
 
 	vim.keymap.set("n", "Q", "<nop>"),
 
-	vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = '[S]earch and replace' }),
-	vim.keymap.set("v", "<leader>s", [[:s///g<Left><Left><Left>]], { desc = '[S]earch and replace in selection' }),
+	vim.keymap.set("n", "<leader>S", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = '[S]earch and [R]eplace' }),
+	vim.keymap.set("v", "<leader>S", [[:s///g<Left><Left><Left>]], { desc = '[S]earch and [R]eplace in selection' }),
 
 	vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>'),
 

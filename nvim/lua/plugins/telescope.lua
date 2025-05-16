@@ -38,6 +38,16 @@ return {
 	config = function()
 		require('telescope').setup {
 			defaults = {
+				layout_strategy = "horizontal",
+				layout_config = {
+					horizontal = {
+						prompt_position = "top",
+						width = { padding = 0 },
+						height = { padding = 0 },
+						preview_width = 0.5,
+					}
+				},
+				sorting_strategy = "ascending",
 				file_ignore_patterns = {
 					"%.git/",     -- ignore .git directory
 					"node_modules/",
