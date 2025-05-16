@@ -11,6 +11,7 @@ ln -sf "$DOTFILES_DIR/git/.gitconfig" "$HOME/.gitconfig"
 
 # Neovim
 ln -sf "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
+mkdir -p "$DOTFILES_DIR/nvim/sessions"
 
 # Wezterm
 ln -sf "$DOTFILES_DIR/wezterm/wezterm.lua" "$HOME/.config/wezterm/wezterm.lua"
