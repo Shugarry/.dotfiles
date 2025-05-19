@@ -11,6 +11,12 @@ return {
 			"saghen/blink.cmp",
 		},
 		config = function()
+			-- Show errors and warnings in a floating window
+			vim.api.nvim_create_autocmd("CursorHold", {
+				callback = function()
+					vim.diagnostic.open_float(nil, { focusable = false, source = "if_many" })
+				end,
+			})
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 				callback = function(event)
