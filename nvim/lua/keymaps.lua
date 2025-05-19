@@ -59,6 +59,9 @@ return {
 		})
 	end, { desc = "[D]elete a session" }),
 
+	-- HARDTIME (lovely stuff honestly)
+	vim.keymap.set("n", "<leader>ht", "<cmd>:Hardtime toggle<CR>", { desc = "[H]ardtime [T]oggle"}),
+
 	-- VIM KEYMAPS
 	vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]]),
 	vim.keymap.set('n', '<C-t>', '<cmd>term<CR>'),
