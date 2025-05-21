@@ -52,6 +52,7 @@ setopt histignorealldups sharehistory
 
 HISTSIZE=1000 # Save 1000 lines of history
 SAVEHIST=1000
+HISTFILE=~/.zsh_history
 
 #================================HISTORY_CONFIG================================#
 
