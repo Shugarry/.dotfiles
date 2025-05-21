@@ -28,8 +28,8 @@ mv /tmp/wezterm.AppImage ~/.local/bin/wezterm
 # Install Neovim (v0.10.3 because its the latest that wget works with but you can install your own as well)
 echo "Installing Neovim..."
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
-chmod u+x nvim.appimage
-mv nvim.appimage $HOME/.local/bin/nvim
+chmod u+x nvim-linux-x86_64.appimage
+mv nvim-linux-x86_64.appimage $HOME/.local/bin/nvim
 
 # Install ripgrep (if Rust/cargo is installed)
 if command -v cargo &> /dev/null; then
