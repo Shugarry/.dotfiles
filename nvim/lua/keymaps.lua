@@ -20,7 +20,6 @@ return {
 	vim.keymap.set('n', '<C-h>', '<cmd>BufferPrev<CR>', { desc = 'Buffer: Go Previous', noremap = true, silent = true }),
 	vim.keymap.set('n', '<A-h>', '<cmd>BufferMovePrevious<CR>', { desc = 'Buffer: Move Previous', noremap = true, silent = true }),
 	vim.keymap.set('n', '<C-p>', '<cmd>wincmd w<CR>', { desc = 'Switch window', noremap = true, silent = true }),
-	vim.keymap.set('n', '<C-s>', '<cmd>wa<CR>', { desc = 'Save all files' }),
 	vim.keymap.set('n', '<C-1>', '<cmd>BufferGoto 1<CR>', { desc = 'Tab 1', noremap = true, silent = true }),
 	vim.keymap.set('n', '<C-2>', '<cmd>BufferGoto 2<CR>', { desc = 'Tab 1', noremap = true, silent = true }),
 	vim.keymap.set('n', '<C-3>', '<cmd>BufferGoto 3<CR>', { desc = 'Tab 1', noremap = true, silent = true }),
@@ -63,6 +62,9 @@ return {
 	vim.keymap.set("n", "<leader>ht", "<cmd>:Hardtime toggle<CR>", { desc = "[H]ardtime [T]oggle"}),
 
 	-- VIM KEYMAPS
+	vim.keymap.set('n', '<C-s>', '<cmd>wa<CR>', { desc = 'Save all files' }),
+	vim.keymap.set('n', '<C-a>', 'ggVG', { desc = 'Select all', noremap = true, silent = true }),
+
 	vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]]),
 	vim.keymap.set('n', '<C-t>', '<cmd>term<CR>'),
 	vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move text up in visual mode' }),
