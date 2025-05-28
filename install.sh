@@ -14,6 +14,7 @@ ln -sf "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
 mkdir -p "$DOTFILES_DIR/nvim/sessions"
 
 # Wezterm
+mkdir -p "$HOME/.config/wezterm"
 ln -sf "$DOTFILES_DIR/wezterm/wezterm.lua" "$HOME/.config/wezterm/wezterm.lua"
 
 # Zsh

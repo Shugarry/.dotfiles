@@ -50,8 +50,10 @@ PROMPT='%B%F{1}%n%f%F{#6272a4}@%F{#8be9fd}%m%f %F{215}%~%f%b${vcs_info_msg_0_} %
 
 setopt histignorealldups sharehistory
 
-HISTSIZE=1000 # Save 1000 lines of history
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=~/.zsh_history
+setopt appendhistory
 
 #================================HISTORY_CONFIG================================#
 
