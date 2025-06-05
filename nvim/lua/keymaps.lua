@@ -58,9 +58,6 @@ return {
 		})
 	end, { desc = "[D]elete a session" }),
 
-	-- HARDTIME (lovely stuff honestly)
-	vim.keymap.set("n", "<leader>ht", "<cmd>:Hardtime toggle<CR>", { desc = "[H]ardtime [T]oggle"}),
-
 	-- VIM KEYMAPS
 	vim.keymap.set('n', '<C-s>', '<cmd>wa<CR>', { desc = 'Save all files' }),
 	vim.keymap.set('n', '<C-a>', 'ggVG', { desc = 'Select all', noremap = true, silent = true }),
