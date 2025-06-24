@@ -9,9 +9,6 @@ end
 
 return {
 
-	-- NEOTREE KEYMAPS
-	vim.keymap.set('n', '<leader>t', '<cmd>Neotree toggle focus position=float<CR>', { desc = 'Neotree: Toggle' }),
-
 	-- BUFFER KEYMAPS
 	vim.keymap.set('n', '<C-j>', '<cmd>BufferClose!<CR>', { desc = 'Close buffer', noremap = true, silent = true }),
 	vim.keymap.set('n', '<C-k>', '<cmd>BufferRestore<CR>', { desc = 'Restore buffer', noremap = true, silent = true }),
