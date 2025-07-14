@@ -6,7 +6,6 @@ This repository contains my personal dotfiles, made personally to optimize my wo
 
 - Neovim
 - zsh
-- i3
 - Wezterm
 - Fonts that I like
 - Also adds dependencies automatically for the aforementioned apps via the install scripts

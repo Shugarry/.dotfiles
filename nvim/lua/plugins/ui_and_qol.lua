@@ -124,10 +124,13 @@ return { -- UI CONFIG
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = { signs = false },
 	},
-	{
+	{ -- COMMENT MULTIPLE LINES (<leader>gc to comment)
 		"numToStr/Comment.nvim",
-		opts = {
-			-- add any options here
-		},
 	},
+	{ -- MULTIPLE CURSORS
+		'mg979/vim-visual-multi'
+	},
+	{ -- UNDO TREE
+		'mbbill/undotree'
+	}
 }
