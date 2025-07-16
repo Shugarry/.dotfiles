@@ -12,7 +12,7 @@ local builtin = require 'telescope.builtin'
 return {
 
 	--CHEAT SHEET
-	vim.keymap.set('n', '<leader>c', require('nvcheatsheet').toggle, { desc = '[C]heatsheet'}),
+--	vim.keymap.set('n', '<leader>c', require('nvcheatsheet').toggle, { desc = '[C]heatsheet'}),
 
 	-- TELESCOPE KEYMAPS
 	vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp' }),
