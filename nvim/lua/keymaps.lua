@@ -24,7 +24,7 @@ return {
 	vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = '[F]ind [D]iagnostics' }),
 	vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = '[F]ind [R]esume' }),
 	vim.keymap.set('n', '<leader>f.', builtin.oldfiles, { desc = '[F]ind Recent Files ("." for repeat)' }),
-	vim.keymap.set("n", "<leader>fb", ":Telescope file_browser path=%:p:h select_buffer=true<CR><ESC>", { desc = "[F]ile [B]rowser"}),
+	vim.keymap.set('n', '<leader>fb', ":Telescope file_browser path=%:p:h select_buffer=true<CR><ESC>", { desc = "[F]ile [B]rowser"}),
 	vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' }),
 
 	vim.keymap.set('n', '<leader>/', function()
@@ -43,7 +43,7 @@ return {
 
 	vim.keymap.set('n', '<leader>fn', function()
 		builtin.find_files { cwd = vim.fn.stdpath 'config' }
-	end, { desc = '[S]earch [N]eovim files' }) ,
+	end, { desc = '[F]ind [N]eovim files' }) ,
 
 	-- BUFFER KEYMAPS
 	vim.keymap.set('n', '<C-j>', '<cmd>BufferClose!<CR>', { desc = 'Close buffer', noremap = true, silent = true }),
@@ -54,11 +54,17 @@ return {
 	vim.keymap.set('n', '<A-h>', '<cmd>BufferMovePrevious<CR>', { desc = 'Buffer: Move Previous', noremap = true, silent = true }),
 	vim.keymap.set('n', '<C-p>', '<cmd>wincmd w<CR>', { desc = 'Switch window', noremap = true, silent = true }),
 	vim.keymap.set('n', '<C-1>', '<cmd>BufferGoto 1<CR>', { desc = 'Tab 1', noremap = true, silent = true }),
-	vim.keymap.set('n', '<C-2>', '<cmd>BufferGoto 2<CR>', { desc = 'Tab 1', noremap = true, silent = true }),
-	vim.keymap.set('n', '<C-3>', '<cmd>BufferGoto 3<CR>', { desc = 'Tab 1', noremap = true, silent = true }),
-	vim.keymap.set('n', '<C-4>', '<cmd>BufferGoto 4<CR>', { desc = 'Tab 1', noremap = true, silent = true }),
-	vim.keymap.set('n', '<C-5>', '<cmd>BufferGoto 5<CR>', { desc = 'Tab 1', noremap = true, silent = true }),
-	vim.keymap.set('n', '<C-6>', '<cmd>BufferGoto 6<CR>', { desc = 'Tab 1', noremap = true, silent = true }),
+	vim.keymap.set('n', '<C-2>', '<cmd>BufferGoto 2<CR>', { desc = 'Tab 2', noremap = true, silent = true }),
+	vim.keymap.set('n', '<C-3>', '<cmd>BufferGoto 3<CR>', { desc = 'Tab 3', noremap = true, silent = true }),
+	vim.keymap.set('n', '<C-4>', '<cmd>BufferGoto 4<CR>', { desc = 'Tab 4', noremap = true, silent = true }),
+	vim.keymap.set('n', '<C-5>', '<cmd>BufferGoto 5<CR>', { desc = 'Tab 5', noremap = true, silent = true }),
+	vim.keymap.set('n', '<C-6>', '<cmd>BufferGoto 6<CR>', { desc = 'Tab 6', noremap = true, silent = true }),
+	vim.keymap.set('n', '<C-7>', '<cmd>BufferGoto 7<CR>', { desc = 'Tab 7', noremap = true, silent = true }),
+	vim.keymap.set('n', '<C-8>', '<cmd>BufferGoto 8<CR>', { desc = 'Tab 8', noremap = true, silent = true }),
+	vim.keymap.set('n', '<C-9>', '<cmd>BufferGoto 9<CR>', { desc = 'Tab 9', noremap = true, silent = true }),
+
+	-- UNDOTREE KEYMAPS
+	vim.keymap.set('n', '<leader>ut', '<cmd>UndotreeToggle<CR>', {desc = '[U]ndo[T]ree toggle'}),
 
 	-- TRANSPARENT.NVIM KEYMAPS
 	vim.keymap.set('n', '<leader>T', '<cmd>TransparentToggle<CR>', { desc = '[T]ransparency toggle' }),
@@ -94,12 +100,10 @@ return {
 
 	vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]]),
 	vim.keymap.set('n', '<C-t>', '<cmd>term<CR>'),
-	vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move text up in visual mode' }),
+	vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move text down in visual mode' }),
 	vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = 'Move text up in visual mode' }),
-
 	vim.keymap.set("x", "<", "<gv", { desc = 'Stay in visual mode while indented' }),
 	vim.keymap.set("x", ">", ">gv", { desc = 'Stay in visual mode while indented' }),
-
 
 	vim.keymap.set("n", "J", "mzJ`z"), -- Stay in middle while moving through file
 	vim.keymap.set("n", "<C-d>", "<C-d>zz"),
@@ -108,10 +112,8 @@ return {
 	vim.keymap.set("n", "N", "Nzzzv"),
 
 	vim.keymap.set("x", "<leader>p", [["_dP]], { desc = 'Paste selection into void' }),
-
 	vim.keymap.set({"n", "v"}, "<leader>y", [["+y]], { desc = '[Y]ank selection into clipboard' }),
 	vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = '[Y]ank line into clipboard' }) ,
-
 	vim.keymap.set({"n", "v"}, "<leader>d", [["_d]], { desc = '[D]elete into void' }),
 
 	vim.keymap.set("n", "Q", "<nop>"),

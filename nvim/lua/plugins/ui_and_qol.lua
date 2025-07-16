@@ -126,6 +126,9 @@ return { -- UI CONFIG
 	},
 	{ -- COMMENT MULTIPLE LINES (<leader>gc to comment)
 		"numToStr/Comment.nvim",
+		config = function()
+			require('Comment').setup()
+		end
 	},
 	{ -- MULTIPLE CURSORS
 		'mg979/vim-visual-multi'
