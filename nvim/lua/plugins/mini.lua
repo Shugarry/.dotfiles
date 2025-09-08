@@ -16,13 +16,14 @@ end
 
 return
 	{
-		{ -- MINI (Various small helpful plugins)
-			"echasnovski/mini.nvim",
+		{ -- MINI (Modular Independent Neovim Integrations)
+			"nvim-mini/mini.nvim",
 			version = "*",
 			config = function()
 				require("mini.ai").setup({ n_lines = 500 })
 				require("mini.surround").setup()
 				require("mini.pairs").setup()
+				require("mini.completion").setup()
 				require("mini.sessions").setup({
 					autoread = false,
 					autowrite = false,
@@ -66,4 +67,15 @@ return
 				end
 			end,
 		},
+		-- {
+		-- 	"nvim-mini/mini.completion",
+		-- 	version = "*",
+		-- 	dependencies = {
+		-- 		"nvim-mini/mini.icons",
+		-- 		"nvim-mini/mini.snippets",
+		-- 	},
+		-- 	config = function()
+		-- 		require("mini.completion").setup()
+		-- 	end,
+		-- },
 	}
