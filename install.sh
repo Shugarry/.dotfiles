@@ -28,4 +28,7 @@ ln -sf "$DOTFILES_DIR/nvim" "$HOME/.vimrc"
 ln -sf "$DOTFILES_DIR/.themes $HOME"
 ln -sf "$DOTFILES_DIR/.fonts" "$HOME"
 
+#clang-format
+ln -sf "$DOTFILES_DIR/.clang-format $HOME"
+
 echo "Dotfiles symlinks created successfully!"
