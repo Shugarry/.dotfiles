@@ -135,5 +135,10 @@ return { -- UI CONFIG
 	},
 	{ -- UNDO TREE
 		'mbbill/undotree'
+	},
+	{ -- GIT CONFLICT
+		'akinsho/git-conflict.nvim',
+		version = "*",
+		config = true
 	}
 }
